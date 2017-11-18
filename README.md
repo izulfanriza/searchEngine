@@ -22,3 +22,7 @@ Anggota :
 2. Muhammad Izul Fanriza  (15/386069/SV/09455)
 3. Nitha Huwaida Hafizha  (15/386075/SV/09461)
 4. Pandhu Prisnawan       (15/386078/SV/09464)
+
+
+
+repositori sebelumnya dimana mengandung history kita sebelum ini, ada di repo http://github.com/pandhup/searchEngine
