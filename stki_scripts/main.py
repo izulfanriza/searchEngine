@@ -51,11 +51,14 @@ def findSim(keyword, path):
 
     #mencari baris dalam suati dokumen yang relevan dengan keyword
     baris = []
+    c = w3.prepro_base(keyword)
+    a = c.split()
     for item in os.listdir(path):
         if item.endswith(".txt"):
             files = open(path + item, 'r')
-            for line in files:
-                if keyword in line: baris.append(line)
+            for i in a:
+                for line in files:
+                    if i in w3.tokenize(w3.prepro_base(line)): baris.append(line)
 
     return w4.sortdic(presentase, isi_doc, baris, descending=True)
 
