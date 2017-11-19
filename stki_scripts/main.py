@@ -23,6 +23,7 @@ def findSim(keyword, path):
     kata_kunci = 'keyword_index'
     articles[kata_kunci] = w3.prepro_base(keyword)
 
+    #menyimpan baris pertama dari dokumen dan menyimpannya dalam dictionary
     isi_doc = {}
     for isi in os.listdir(path):
      if isi.endswith(".txt"):
@@ -48,6 +49,7 @@ def findSim(keyword, path):
         if key != kata_kunci:
             presentase[key] = w5.cosine(matrix_akhir[id_keyword], vektor)
 
+    #mencari baris dalam suati dokumen yang relevan dengan keyword
     baris = []
     for item in os.listdir(path):
         if item.endswith(".txt"):
