@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Simple Task Manager</title>
+    <style>
+        table, td {
+           border: 1px solid black;
+        }
+        .head {
+            text-align: center;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="head">
+        <h1>SIMPLE SEARCH ENGINE</h1> 
+    </div>
+    <div align="center">
+        <form method="POST">
+            {{ sform.hidden_tag() }}
+            <fieldset>
+                <legend align="center">Inputkan Query</legend>
+                {{ sform.keyword }} 
+                {{ sform.search }}
+            </fieldset>
+        </form>
+    </div>
+    <br>
+    <br>
+    <div align="center">
+    <b>Document Result:</b><br><br>
+        <table>
+            <tr>
+                <td style="text-align:center">Judul</td>
+                <td style="text-align:center">Presentase Kemiripan</td>
+                <td style="text-align:center">Baris Dokumen</td>
+            </tr>
+        {% for v in data%}
+        {% if v[1] != 0.0 %}
+            <tr>
+            <td style="text-align:center">{{ v[0] }}</td>
+            <td style="text-align:center">{{ v[1] }}%</td>
+            <td style="text-align:center" class="res">{{ v[3] }}</td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+        </table>
+    </div>
+  </body>
+</html>

@@ -25,4 +25,4 @@ Anggota :
 
 
 
-repositori sebelumnya dimana mengandung history kita sebelum ini, ada di repo http://github.com/pandhup/searchEngine
+repositori sebelumnya dimana mengandung history push kita sebelum ini, ada di repo http://github.com/pandhup/searchEngine
