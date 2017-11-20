@@ -53,10 +53,12 @@ def findSim(keyword, path):
     a = c.split()
     for item in os.listdir(path):
         if item.endswith(".txt"):
-            files = open(path + item, 'r')
+            files = open(path + item, 'r').readlines()
             for i in a:
                 for line in files:
-                    if i in w3.tokenize(w3.prepro_base(line)): baris.append(line)
+                    b = w3.tokenize(w3.prepro_base(line))
+                    if i in b: 
+                        baris.append(line)
 
     return w4.sortdic(presentase, isi_doc, baris, descending=True)
 

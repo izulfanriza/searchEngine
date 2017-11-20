@@ -1,0 +1,2 @@
+- baris[] yang berisi kalimat yang mengandung keyword cuma yang pertama (baris[0])
+- kalau extend baris akan berisi character
