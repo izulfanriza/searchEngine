@@ -26,4 +26,3 @@ def cosine(vector1, vector2):
     mag2 = math.sqrt(sum([a**2 for a in vector2]))
 
     return round(dot/(mag1*mag2),3)*100
-
