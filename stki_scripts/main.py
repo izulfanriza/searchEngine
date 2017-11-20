@@ -50,16 +50,18 @@ def findSim(keyword, path):
             presentase[key] = w5.cosine(matrix_akhir[id_keyword], vektor)
 
     #mencari baris dalam suati dokumen yang relevan dengan keyword
-    baris = []
-    c = w3.prepro_base(keyword)
-    a = c.split()
+    baris = {}
+    token_key = w3.prepro_base(keyword).split()
     for item in os.listdir(path):
         if item.endswith(".txt"):
-            files = open(path + item, 'r')
-            for i in a:
-                for line in files:
-                    if i in w3.tokenize(w3.prepro_base(line)): baris.append(line)
+            tmp = [] 
+            doc = open(path + item, 'r').readlines()
+            for word in token_key:
+                for line in doc:
+                    if word in w3.tokenize(w3.prepro_base(line)): tmp.append("<**> " + line)
+            if len(tmp) is not 0 :
+                #line of keyword
+                lok = ''.join(tmp)
+                baris[item] = lok   
 
     return w4.sortdic(presentase, isi_doc, baris, descending=True)
-
-
