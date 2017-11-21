@@ -54,14 +54,20 @@ def findSim(keyword, path):
     token_key = w3.prepro_base(keyword).split()
     for item in os.listdir(path):
         if item.endswith(".txt"):
+            baris[item] = ""
             tmp = [] 
             doc = open(path + item, 'r').readlines()
             for word in token_key:
                 for line in doc:
-                    if word in w3.tokenize(w3.prepro_base(line)): tmp.append("<**> " + line)
+                    if word in w3.tokenize(w3.prepro_base(line)) and line not in(value for index,value in enumerate(tmp)):
+                        tmp.append(line)      
             if len(tmp) is not 0 :
                 #line of keyword
                 lok = ''.join(tmp)
-                baris[item] = lok   
+                baris[item] = lok
+            else :
+                baris[item] = 'kosong'
+
+
 
     return w4.sortdic(presentase, isi_doc, baris, descending=True)

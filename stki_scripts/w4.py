@@ -47,7 +47,7 @@ def sortdic(dic, isi, baris, descending=True, n=None):
 
 
 def l2_normalizer(vector):
-    """
+    """ 
     fungsi untuk normalisasi L2 terhadap vektor dalam matrix
     :param vector:
     :return:
@@ -55,7 +55,7 @@ def l2_normalizer(vector):
     denom = sum([item**2 for item in vector])
     return [(item / math.sqrt(denom)) for item in vector]
 
-def matrix(list_of_bow, normalized=False):
+def matrix(list_of_bow, normalized=True):
     """
     membuat matrix representasi bag of words.
     baris dari matrix sejumlah banyaknya dictionary bow.
