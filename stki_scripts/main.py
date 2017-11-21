@@ -2,7 +2,7 @@
 author rochanaph
 October 23 2017"""
 
-import w3,w4,w5, os, sys
+import w3,w4,w5, os, sys, urllib2
 
 reload(sys)  
 sys.setdefaultencoding('utf8')
@@ -67,7 +67,5 @@ def findSim(keyword, path):
                 baris[item] = lok
             else :
                 baris[item] = 'kosong'
-
-
 
     return w4.sortdic(presentase, isi_doc, baris, descending=True)

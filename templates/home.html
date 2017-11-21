@@ -34,6 +34,7 @@
                 <td style="text-align:center">Presentase Kemiripan</td>
                 <!-- <td style="text-align:center">Isi Doc Asli</td> -->
                 <td style="text-align:center">Baris Dokumen</td>
+                <td style="text-align:center">Aksi</td>
             </tr>
         {% for v in data%}
         {% if v[1] != 0.0 %}
@@ -42,6 +43,7 @@
             <td style="text-align:center">{{ v[1] }}%</td>
             <!-- <td style="text-align:center">{{ v[2] }}</td> -->
             <td style="text-align:center">{{ v[3] }}</td>
+            <td style="text-align:center"><a href= "text_files/{{ v[0] }}"> {{  v[0] }}</a></td>
             </tr>
         {% endif %}
         {% endfor %}

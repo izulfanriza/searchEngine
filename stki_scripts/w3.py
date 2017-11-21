@@ -19,6 +19,12 @@ def squeeze_whitespace(string):
         string = string.replace('  ', ' ') # dobel space diganti 1 space
     return string
 
+## squeeze whitespace
+def space_prosen(string):
+    while ' ' in string: # dobel space
+        string = string.replace(' ', '%') # dobel space diganti 1 space
+    return string    
+
 ## remove punctuation
 def remove_punctuation(string):
     punc = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-",
