@@ -34,6 +34,7 @@ def sortdic(dic, isi, baris, descending=True, n=None):
     isi = isi.values()
     baris = baris.values()
 
+    
     key_ordered = [x for _, x in sorted(zip(val, key), reverse=descending)][:n]
     isi_ordered =  [x for _, x in sorted(zip(val, isi), reverse=descending)][:n]
     baris_ordered =  [x for _, x in sorted(zip(val, baris), reverse=descending)][:n]
@@ -55,7 +56,7 @@ def l2_normalizer(vector):
     denom = sum([item**2 for item in vector])
     return [(item / math.sqrt(denom)) for item in vector]
 
-def matrix(list_of_bow, normalized=False):
+def matrix(list_of_bow, normalized=True):
     """
     membuat matrix representasi bag of words.
     baris dari matrix sejumlah banyaknya dictionary bow.

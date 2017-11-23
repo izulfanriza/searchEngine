@@ -2,7 +2,7 @@
 author rochanaph
 October 23 2017"""
 
-import w3,w4,w5, os, sys, urllib2
+import w3,w4,w5, os, sys
 
 reload(sys)  
 sys.setdefaultencoding('utf8')

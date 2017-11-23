@@ -36,18 +36,22 @@
                 <td style="text-align:center">Baris Dokumen</td>
                 <td style="text-align:center">Aksi</td>
             </tr>
-        {% for v in data%}
+        {% for v in data %}
         {% if v[1] != 0.0 %}
             <tr>
             <td style="text-align:center">{{ v[0] }}</td>
             <td style="text-align:center">{{ v[1] }}%</td>
             <!-- <td style="text-align:center">{{ v[2] }}</td> -->
             <td style="text-align:center">{{ v[3] }}</td>
-            <td style="text-align:center"><button><a href= "text_files/{{ v[0] }}"> Buka</a></button></td>
+            <td style="text-align:center"><button onclick="link()"><a href= "text_files/{{ v[0] }}"> Buka</a></button></td>
             </tr>
         {% endif %}
         {% endfor %}
         </table>
+
+        <script type="text/javascript">
+            
+        </script>
     </div>
   </body>
 </html>

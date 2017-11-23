@@ -35,5 +35,6 @@ def opentext(path):
     fullpath = "./text_files/" + path
     resp = open(fullpath).read()
     return resp
+    
 if __name__=='__main__':
     app.run(debug=True,port=5000)
