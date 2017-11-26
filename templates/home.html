@@ -4,10 +4,10 @@
     <style>
     table, td {
        border: 1px solid black;
-   }
+    }
    .head {
     text-align: center;
-}
+    }
 </style>
 
 <script type="text/javascript">
@@ -44,6 +44,15 @@
     });
         chart.render();
     }
+
+    function myFunction() {
+    var x = document.getElementById("chartContainer");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+} 
 </script>
 </head>
 <body>
@@ -60,7 +69,11 @@
             </fieldset>
         </form>
     </div>
+    {% if counter!=0 %}
     <div id="timer">menampilkan {{ counter }} hasil dalam {{ data1 }} detik</div>
+    {% else %}
+    <div id="timer">menampilkan {{ counter }} hasil dalam 0 detik</div>
+    {% endif %}
     <br>
     <div id="chartContainer" style="height: 300px; width: 100%; align: right"></div>
     <br>

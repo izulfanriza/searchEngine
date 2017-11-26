@@ -1,8 +1,9 @@
+from __future__ import unicode_literals
 from flask import Flask, render_template, redirect
 from flask_wtf import FlaskForm
 from wtforms import TextField, IntegerField, SubmitField, validators
 from stki_scripts.main import findSim
-import time
+import time,urllib2
 
 app = Flask(__name__)
 app.config.update(dict(SECRET_KEY='dendiGanteng'))
@@ -51,4 +52,4 @@ def opentext(path):
     resp = open(fullpath).read()
     return resp
 if __name__=='__main__':
-    app.run(debug=True,port=5000)
+    app.run(debug=True,port=5003)

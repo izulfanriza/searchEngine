@@ -29,7 +29,7 @@ def space_prosen(string):
 def remove_punctuation(string):
     punc = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-",
             ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]",
-            "^", "_", "`", "{", "|", "}", "~", "\""]
+            "^", "_", "`", "{", "|", "}", "~", "\"","u'\u2013'"]
     for item in punc:
         string = string.replace(item, " ")
     return string.strip()

@@ -1,7 +1,7 @@
 """
 author rochanaph
 October 23 2017"""
-
+from __future__ import unicode_literals
 import w3,w4,w5, os, sys, urllib2
 
 reload(sys)  
