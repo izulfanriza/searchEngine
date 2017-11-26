@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 *.pyc
 *.fuse
+=======
+*.pyc
+*.fuse
+.vscode
+>>>>>>> 38b67120c87b6c12abcb5bcb685e4e24f7f36668

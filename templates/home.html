@@ -13,30 +13,36 @@
         }
     </style>
 
+<<<<<<< HEAD
  <!--    <script type="text/javascript">
         window.onload = function() {
+=======
+    <script type="text/javascript">
+        // window.onload = function() {
+>>>>>>> 38b67120c87b6c12abcb5bcb685e4e24f7f36668
             
-            var chart = new CanvasJS.Chart("chartContainer", {
-                animationEnabled: true,
-                title: {
-                    text: "Chart Kemiripan Dokumen"
-                },
-                data: [{
-                    type: "pie",
-                    startAngle: 240,
-                    yValueFormatString: "##0.00\"%\"",
-                    indexLabel: "{label} {y}",
-                    dataPoints: [
-                        {% for vis in data %}
-                        {% if vis[1] != 0.0 %}
-                        {y: {{ vis[1] }}, label: '{{ vis[0] }}'},
-                        {% endif %}
-                        {% endfor %}
-                    ]
-                }]
-            });
-            chart.render();
+        //     var chart = new CanvasJS.Chart("chartContainer", {
+        //         animationEnabled: true,
+        //         title: {
+        //             text: "Chart Kemiripan Dokumen"
+        //         },
+        //         data: [{
+        //             type: "pie",
+        //             startAngle: 240,
+        //             yValueFormatString: "##0.00\"%\"",
+        //             indexLabel: "{label} {y}",
+        //             dataPoints: [
+        //                 {% for vis in data %}
+        //                 {% if vis[1] != 0.0 %}
+        //                 {y: {{ vis[1] }}, label: '{{ vis[0] }}'},
+        //                 {% endif %}
+        //                 {% endfor %}
+        //             ]
+        //         }]
+        //     });
+        //     chart.render();
             
+<<<<<<< HEAD
             }
         </script> -->
 
@@ -73,6 +79,45 @@
 
         }
 </script>
+=======
+        //     }
+        
+        window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light1", // "light1", "light2", "dark1", "dark2"
+    title: {
+        text: "Chart Kemiripan Dokumen"
+    },
+    subtitles: [{
+        text: " ",
+        fontSize: 17
+    }],
+    axisY: {
+        suffix: " %",
+        scaleBreaks: {
+            customBreaks: [{
+            }]
+        }
+    },
+    data: [{
+        type: "column",
+        yValueFormatString: "#,## %",
+        dataPoints: [
+        {% for vis in data %}
+        {% if vis[1] != 0.0 %}
+            { label: "{{ vis[0] }}", y: {{ vis[1] }} },
+        {% endif %}    
+        {% endfor %}    
+        ]
+    }]
+});
+chart.render();
+
+}
+        </script>
+>>>>>>> 38b67120c87b6c12abcb5bcb685e4e24f7f36668
   </head>
   <body style="background:">
     <div class="head">
@@ -110,7 +155,7 @@
             <td style="text-align:center">{{ v[1] }}%</td>
             <!-- <td style="text-align:center">{{ v[2] }}</td> -->
             <td style="text-align:center">{{ v[3] }}</td>
-            <td style="text-align:center"><button><a href= "text_files/{{ v[0] }}"> Buka</a></button></td>
+            <td style="text-align:center"><a href= "text_files/{{ v[0] }}"> Buka</a></td>
             </tr>
         {% endif %}
         {% endfor %}
