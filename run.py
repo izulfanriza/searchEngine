@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect
 from flask_wtf import FlaskForm
 from wtforms import TextField, IntegerField, SubmitField, validators
 from stki_scripts.main import findSim
-import urllib2,time
+import time
 
 app = Flask(__name__)
 app.config.update(dict(SECRET_KEY='dendiGanteng'))
@@ -18,14 +18,15 @@ durasi = time
 
 def searchTask(form):
     global durasi,awal,akhir #akses variabel global
+    durasi = 0.0
     keyword = form.keyword.data
     path_corpus = "./text_files/"
 
     awal = time.time() #set globvar awal
     res = findSim(keyword, path_corpus)
     akhir = time.time() #set globvar akhir
-
     durasi = akhir - awal #set global durasi
+
     return res
 
 @app.route('/', methods=['GET','POST'])
@@ -35,12 +36,12 @@ def main():
     c = 0
     # get response 
     data = {}
-    data1 = durasi
     if sform.validate_on_submit() and sform.search.data:
         data = searchTask(sform)
     for item in data:
         if item[1] != 0.0:
-            c+=1
+            c+=1      
+    data1 = durasi
     # render HTML
     return render_template('home.html', sform = sform, data = data, data1=data1, counter=c)
 
