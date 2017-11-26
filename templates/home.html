@@ -8,9 +8,73 @@
         .head {
             text-align: center;
         }
+        .chart {
+            display: none;
+        }
     </style>
+
+ <!--    <script type="text/javascript">
+        window.onload = function() {
+            
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Chart Kemiripan Dokumen"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 240,
+                    yValueFormatString: "##0.00\"%\"",
+                    indexLabel: "{label} {y}",
+                    dataPoints: [
+                        {% for vis in data %}
+                        {% if vis[1] != 0.0 %}
+                        {y: {{ vis[1] }}, label: '{{ vis[0] }}'},
+                        {% endif %}
+                        {% endfor %}
+                    ]
+                }]
+            });
+            chart.render();
+            
+            }
+        </script> -->
+
+        <script>
+        window.onload = function () {
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light1", // "light1", "light2", "dark1", "dark2"
+            title: {
+                text: "Chart Kemiripan Dokumen "
+            },
+            subtitles: [{
+                text: " ",
+                fontSize: 16
+            }],
+            axisY: {
+                suffix: "%",
+                
+            },
+            data: [{
+                type: "column",
+                yValueFormatString: "#,#0 %",
+                dataPoints: [
+                 {% for vis in data %}
+                 {% if vis[1] != 0.0 %}
+                    { label: "{{vis[0] }}", y: {{vis[1]}} },
+                {% endif %}
+                {% endfor %}
+                ]
+            }]
+        });
+        chart.render();
+
+        }
+</script>
   </head>
-  <body>
+  <body style="background:">
     <div class="head">
         <h1>SIMPLE SEARCH ENGINE</h1> 
     </div>
@@ -20,11 +84,13 @@
             <fieldset>
                 <legend align="center">Inputkan Query</legend>
                 {{ sform.keyword }} 
-                {{ sform.search }}
+                <!-- {{ sform.search }} -->
+                <input id="sform-search" name="sform-search" type="submit" value="Search" onclick="muncul()"></input>
             </fieldset>
         </form>
     </div>
     <br>
+    <div id="chartContainer" class="chart" style="height: 300px; width: 100%; align: right"></div>
     <br>
     <div align="center">
     <b>Document Result:</b><br><br>
@@ -36,22 +102,30 @@
                 <td style="text-align:center">Baris Dokumen</td>
                 <td style="text-align:center">Aksi</td>
             </tr>
-        {% for v in data %}
+        {% for v in data%}
         {% if v[1] != 0.0 %}
+
             <tr>
             <td style="text-align:center">{{ v[0] }}</td>
             <td style="text-align:center">{{ v[1] }}%</td>
             <!-- <td style="text-align:center">{{ v[2] }}</td> -->
             <td style="text-align:center">{{ v[3] }}</td>
-            <td style="text-align:center"><button onclick="link()"><a href= "text_files/{{ v[0] }}"> Buka</a></button></td>
+            <td style="text-align:center"><button><a href= "text_files/{{ v[0] }}"> Buka</a></button></td>
             </tr>
         {% endif %}
         {% endfor %}
         </table>
-
-        <script type="text/javascript">
-            
-        </script>
     </div>
+    <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
+    <script src="{{ url_for('static',filename='js/chart.js') }}"></script>
+    <script type="text/javascript">
+        function muncul() {
+            document.getElementById("chartContainer").style.display = "";
+        }
+        function showDiv(toogle) {
+            document.getElementById("chartContainer").style.display = "";
+        }
+
+    </script>
   </body>
 </html>

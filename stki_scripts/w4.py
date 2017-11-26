@@ -56,7 +56,7 @@ def l2_normalizer(vector):
     denom = sum([item**2 for item in vector])
     return [(item / math.sqrt(denom)) for item in vector]
 
-def matrix(list_of_bow, normalized=True):
+def matrix(list_of_bow, normalized=False):
     """
     membuat matrix representasi bag of words.
     baris dari matrix sejumlah banyaknya dictionary bow.

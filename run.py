@@ -1,20 +1,19 @@
 from flask import Flask, render_template, redirect
 from flask_wtf import FlaskForm
-from wtforms import TextField, IntegerField, SubmitField
+from wtforms import TextField, IntegerField, SubmitField, validators
 from stki_scripts.main import findSim
 
 app = Flask(__name__)
 app.config.update(dict(SECRET_KEY='12345'))
 
 class SearchTask(FlaskForm):
-    keyword = TextField('Keyword')
+    keyword = TextField('Keyword',[validators.DataRequired()])
     search = SubmitField('Search')
 
 def searchTask(form):
     keyword = form.keyword.data
     path_corpus = "./text_files/"
-    res = findSim(keyword, path_corpus)
-    # res = {"title 1":0.3, "title 2":0.5, "title 3":1.3} # change the value here
+    res = findSim(keyword,path_corpus)
     return res
 
 @app.route('/', methods=['GET','POST'])
