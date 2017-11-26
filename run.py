@@ -1,13 +1,13 @@
 from flask import Flask, render_template, redirect
 from flask_wtf import FlaskForm
-from wtforms import TextField, IntegerField, SubmitField
+from wtforms import TextField, IntegerField, SubmitField, validators
 from stki_scripts.main import findSim
 
 app = Flask(__name__)
 app.config.update(dict(SECRET_KEY='12345'))
 
 class SearchTask(FlaskForm):
-    keyword = TextField('Keyword')
+    keyword = TextField('Keyword', [validators.DataRequired()])
     search = SubmitField('Search')
 
 def searchTask(form):

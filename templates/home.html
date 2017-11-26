@@ -11,30 +11,65 @@
     </style>
 
     <script type="text/javascript">
-        window.onload = function() {
+        // window.onload = function() {
             
-            var chart = new CanvasJS.Chart("chartContainer", {
-                animationEnabled: true,
-                title: {
-                    text: "Chart Kemiripan Dokumen"
-                },
-                data: [{
-                    type: "pie",
-                    startAngle: 240,
-                    yValueFormatString: "##0.00\"%\"",
-                    indexLabel: "{label} {y}",
-                    dataPoints: [
-                        {% for vis in data %}
-                        {% if vis[1] != 0.0 %}
-                        {y: {{ vis[1] }}, label: '{{ vis[0] }}'},
-                        {% endif %}
-                        {% endfor %}
-                    ]
-                }]
-            });
-            chart.render();
+        //     var chart = new CanvasJS.Chart("chartContainer", {
+        //         animationEnabled: true,
+        //         title: {
+        //             text: "Chart Kemiripan Dokumen"
+        //         },
+        //         data: [{
+        //             type: "pie",
+        //             startAngle: 240,
+        //             yValueFormatString: "##0.00\"%\"",
+        //             indexLabel: "{label} {y}",
+        //             dataPoints: [
+        //                 {% for vis in data %}
+        //                 {% if vis[1] != 0.0 %}
+        //                 {y: {{ vis[1] }}, label: '{{ vis[0] }}'},
+        //                 {% endif %}
+        //                 {% endfor %}
+        //             ]
+        //         }]
+        //     });
+        //     chart.render();
             
-            }
+        //     }
+        
+        window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light1", // "light1", "light2", "dark1", "dark2"
+    title: {
+        text: "Chart Kemiripan Dokumen"
+    },
+    subtitles: [{
+        text: " ",
+        fontSize: 17
+    }],
+    axisY: {
+        suffix: " %",
+        scaleBreaks: {
+            customBreaks: [{
+            }]
+        }
+    },
+    data: [{
+        type: "column",
+        yValueFormatString: "#,## %",
+        dataPoints: [
+        {% for vis in data %}
+        {% if vis[1] != 0.0 %}
+            { label: "{{ vis[0] }}", y: {{ vis[1] }} },
+        {% endif %}    
+        {% endfor %}    
+        ]
+    }]
+});
+chart.render();
+
+}
         </script>
   </head>
   <body>
