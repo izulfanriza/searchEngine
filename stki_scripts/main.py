@@ -24,11 +24,11 @@ def findSim(keyword, path):
     articles[kata_kunci] = w3.prepro_base(keyword)
 
     #menyimpan baris pertama dari dokumen dan menyimpannya dalam dictionary
-    isi_doc = {}
-    for isi in os.listdir(path):
-     if isi.endswith(".txt"):
-         with open(path + isi,'r') as file:
-             isi_doc[isi] = file.read()
+    # isi_doc = {}
+    # for isi in os.listdir(path):
+    #  if isi.endswith(".txt"):
+    #      with open(path + isi,'r') as file:
+    #          isi_doc[isi] = file.read()
 
     # membuat list list_of_bow
     # yang kemudian dimasukan token-token unik di setiap dokumennya
@@ -68,4 +68,4 @@ def findSim(keyword, path):
             else :
                 baris[item] = 'kosong'
 
-    return w4.sortdic(presentase, isi_doc, baris, descending=True)
+    return w4.sortdic(presentase, baris, descending=True)

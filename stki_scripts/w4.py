@@ -17,7 +17,7 @@ def bow(list_token):
         bow_dict[item] = list_token.count(item) # key, value diisi kata, jumlah kemunculan
     return bow_dict
 
-def sortdic(dic, isi, baris, descending=True, n=None):
+def sortdic(dic, baris, descending=True, n=None):
     """
     fungsi untuk mengurutkan dictionary hasil representasi bag of words
     :param dic: dictionary key,value = string,int
@@ -31,18 +31,18 @@ def sortdic(dic, isi, baris, descending=True, n=None):
     # python 2
     key = dic.keys()
     val = dic.values()
-    isi = isi.values()
+    # isi = isi.values()
     baris = baris.values()
 
     key_ordered = [x for _, x in sorted(zip(val, key), reverse=descending)][:n]
-    isi_ordered =  [x for _, x in sorted(zip(val, isi), reverse=descending)][:n]
+    # isi_ordered =  [x for _, x in sorted(zip(val, isi), reverse=descending)][:n]
     baris_ordered =  [x for _, x in sorted(zip(val, baris), reverse=descending)][:n]
     val_ordered = sorted(val, reverse=descending)[:n]
-
+    
     ## python 3
     # return list(zip(key_ordered,val_ordered))
     # python 2
-    return zip(key_ordered,val_ordered,isi_ordered,baris_ordered) [:n]
+    return zip(key_ordered,val_ordered,baris_ordered) [:n]
 
 
 
