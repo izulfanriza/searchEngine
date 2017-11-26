@@ -2,6 +2,7 @@
 author rochanaph
 September 21 2017
 """
+# -*- coding: utf-8 -*-
 import w3, os, math
 
 def bow(list_token):
@@ -78,7 +79,7 @@ def matrix(list_of_bow, normalized=False):
     # append jumlah kata utk msg2 artikel dengan urutan menurut vocab unik terurut abjad
     for j in range(jumlah_artikel):
         for kata in vocab_all:
-            if kata not in list_of_bow[j].keys() and kata is not u'\u2013':
+            if kata not in list_of_bow[j].keys():
                 matrix_result[j].append(0)
             else:
                 matrix_result[j].append(list_of_bow[j][kata])

@@ -2,6 +2,7 @@
 author rochanaph
 September 4 2017
 """
+# -*- coding: utf-8 -*-
 
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 
@@ -29,7 +30,7 @@ def space_prosen(string):
 def remove_punctuation(string):
     punc = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-",
             ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]",
-            "^", "_", "`", "{", "|", "}", "~", "\"","u'\u2013'"]
+            "^", "_", "`", "{", "|", "}", "~", "\"","u\'\\u2013\'"]
     for item in punc:
         string = string.replace(item, " ")
     return string.strip()
@@ -59,6 +60,6 @@ def preprotext(string):
 
 def prepro_base(string):
     token = tokenize(squeeze_whitespace(string))
-    cleantext = [fold(item) for item in token]
-    cleantext = [remove_punctuation(item) for item in cleantext]
+    cleantext = [remove_punctuation(item) for item in token]
+    cleantext = [fold(item) for item in cleantext]
     return " ".join(cleantext)
